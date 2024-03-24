@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "btBulletDynamicsCommon.h"
-
+#include <btBulletDynamicsCommon.h>
+#include <memory>
 namespace skybolt {
 namespace sim {
 
