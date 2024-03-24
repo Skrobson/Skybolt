@@ -47,17 +47,17 @@ Conan can be installed with [pip](https://pypi.org/project/pip): ```pip3 install
 #### Installing Skybolt's Dependencies
 To install dependencies with default Skybolt configuraion:
 ```
-conan install %SKYBOLT_SOURCE% --install-folder=%SKYBOLT_BUILD%
+conan install %SKYBOLT_SOURCE% --install-folder=%SKYBOLT_BUILD% --build=missing
 ```
 To use a custom configuration instead, configuration options may be supplied with the -o argument, for example:
 ```
-conan install %SKYBOLT_SOURCE% --install-folder=%SKYBOLT_BUILD% -o openscenegraph-mr:shared=True -o enable_python=True -o enable_sprocket=True -o enable_bullet=True -o enable_cigi=True
+conan install %SKYBOLT_SOURCE% --install-folder=%SKYBOLT_BUILD% -o openscenegraph:shared=True -o enable_python=True -o enable_bullet=True -o enable_cigi=True --build=missing
 ```
 Please refer to [conanfile.py](conanfile.py) for a full list of available configuration options.
 #### Building Skybolt
 Once dependencies have been installed, Skybolt CMake project can be generated and compiled with:
 ```
-conan build %SKYBOLT_SOURCE% --build-folder=%SKYBOLT_BUILD%
+conan build %SKYBOLT_SOURCE% --build-folder=%SKYBOLT_BUILD% 
 ```
 
 ## Installing Asset Packages
