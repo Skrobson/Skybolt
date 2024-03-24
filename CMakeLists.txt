@@ -64,15 +64,8 @@ else()
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-register") # disable warnings about use of 'register' in glm
 endif()
 
-#-------------------------------------------------------------
-# Dependency options
-#-------------------------------------------------------------
-OPTION(Boost_STATIC_LIBS "Boost use static libs")
-if (Boost_STATIC_LIBS)
-	set(Boost_USE_STATIC_LIBS ON)
-endif()
 
-OPTION(OSG_STATIC_LIBS "OSG use static libs")
+OPTION(OSG_STATIC_LIBS "OSG use static libs" OFF)
 if (OSG_STATIC_LIBS)
 	add_definitions(-DOSG_LIBRARY_STATIC)
 endif()
@@ -85,8 +78,14 @@ include(SetPluginTargetProperties)
 include(Catch)
 include(SkyboltInstall)
 
+find_package(Boost REQUIRED COMPONENTS log system filesystem iostreams serialization thread program_options filesystem)  
+
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_RUNTIME ON)
+
+
 add_subdirectory (src/Skybolt)
-#add_subdirectory (src/SkyboltExamples)
+add_subdirectory (src/SkyboltExamples)
 
 OPTION(BUILD_SPROCKET "Build Sprocket")
 if (BUILD_SPROCKET)
@@ -110,12 +109,12 @@ install(
 	PATTERN "*.h*"
 )
 
-install(
-	DIRECTORY ${CMAKE_SOURCE_DIR}/src/Sprocket
-	DESTINATION include
-	FILES_MATCHING
-	PATTERN "*.h*"
-)
+# install(
+# 	DIRECTORY ${CMAKE_SOURCE_DIR}/src/Sprocket
+# 	DESTINATION include
+# 	FILES_MATCHING
+# 	PATTERN "*.h*"
+# )
 
 # Install cmake config files
 include(CMakePackageConfigHelpers)

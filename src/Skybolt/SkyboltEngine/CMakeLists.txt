@@ -4,7 +4,6 @@ add_source_group_tree(. SOURCE_FILES)
 
 include_directories("../")
 
-find_package(Boost COMPONENTS log program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -13,6 +12,8 @@ set(LIBRARIES
 	SkyboltCommon
 	SkyboltSim
 	SkyboltVis
+	#Boost::log
+	#Boost::program_options
 	${Boost_LIBRARIES}
 	${CMAKE_DL_LIBS} # Required by gcc
 )

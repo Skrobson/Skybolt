@@ -4,7 +4,6 @@ add_source_group_tree(. SOURCE_FILES)
 
 include_directories("../")
 
-find_package(Boost COMPONENTS log REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 if (OSG_STATIC_LIBS)
@@ -44,9 +43,6 @@ set(LIBRARIES
 	SkyboltSim
 	${Boost_LIBRARIES}
 	${OPENSCENEGRAPH_LIBRARIES}
-	${OPENSCENEGRAPH_LIBRARY_LIST}
-	OPENSCENEGRAPH::osgDB
-	${OPENTHREADS_LIBRARIES}
 	${muFFT_LIBRARIES}
 	cxxtimer::cxxtimer
 	earcut_hpp::earcut_hpp

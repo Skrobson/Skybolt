@@ -8,10 +8,16 @@ include_directories("../../Skybolt")
 
 set(LIBS
 ExamplesCommon
+SkyboltEngine
 )
 
 add_executable(${APP_NAME} ${SOURCE})
-target_link_libraries (${APP_NAME} ${LIBS})
+target_link_libraries (${APP_NAME} 
+	${LIBS}
+	Boost::boost
+	Boost::log
+	Boost::program_options
+)
 
 set_target_properties(${APP_NAME} PROPERTIES FOLDER Examples)
 

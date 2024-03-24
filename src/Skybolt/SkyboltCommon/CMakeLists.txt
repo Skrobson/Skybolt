@@ -4,7 +4,6 @@ add_source_group_tree(. SOURCE_FILES)
 find_package(glm REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
-find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 include_directories("../")
