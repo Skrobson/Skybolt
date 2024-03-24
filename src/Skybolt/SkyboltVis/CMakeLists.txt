@@ -23,13 +23,13 @@ if (OSG_STATIC_LIBS)
 	)
 endif()
 
-find_package(OSG REQUIRED COMPONENTS osg osgDB osgGA osgText osgUtil osgViewer ${OSG_STATIC_LINK_PLUGIN_NAMES})
-include_directories(${OSG_INCLUDE_DIR})
+find_package(OpenSceneGraph REQUIRED COMPONENTS osg osgDB osgGA osgText osgUtil osgViewer ${OSG_STATIC_LINK_PLUGIN_NAMES})
+include_directories(${OPENSCENEGRAPH_INCLUDE_DIR})
 
 find_package(OpenThreads)
 
 find_package(cxxtimer REQUIRED)
-find_package(earcut REQUIRED)
+find_package(earcut_hpp REQUIRED)
 find_package(httplib REQUIRED)
 find_package(px_sched REQUIRED)
 
@@ -43,11 +43,13 @@ set(LIBRARIES
 	SkyboltCommon
 	SkyboltSim
 	${Boost_LIBRARIES}
-	${OSG_LIBRARIES}
+	${OPENSCENEGRAPH_LIBRARIES}
+	${OPENSCENEGRAPH_LIBRARY_LIST}
+	OPENSCENEGRAPH::osgDB
 	${OPENTHREADS_LIBRARIES}
 	${muFFT_LIBRARIES}
 	cxxtimer::cxxtimer
-	earcut::earcut
+	earcut_hpp::earcut_hpp
 	httplib::httplib
 	px_sched::px_sched
 )
@@ -70,7 +72,7 @@ endif()
 
 add_library(${LIB_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
-target_include_directories(${LIB_NAME} PUBLIC ${OSG_INCLUDE_DIR})
-target_link_libraries(${LIB_NAME} ${LIBRARIES})
+target_include_directories(${LIB_NAME} PUBLIC ${OPENSCENEGRAPH_INCLUDE_DIR})
+target_link_libraries(${LIB_NAME} PUBLIC ${LIBRARIES})
 
 skybolt_install(${LIB_NAME})

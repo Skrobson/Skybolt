@@ -5,7 +5,7 @@ include(CMakeFindDependencyMacro)
 
 # Skybolt dependencies
 find_dependency(cxxtimer)
-find_dependency(earcut)
+find_dependency(earcut_hpp)
 find_dependency(glm)
 find_dependency(httplib)
 find_dependency(nlohmann_json)

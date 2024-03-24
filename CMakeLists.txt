@@ -86,7 +86,7 @@ include(Catch)
 include(SkyboltInstall)
 
 add_subdirectory (src/Skybolt)
-add_subdirectory (src/SkyboltExamples)
+#add_subdirectory (src/SkyboltExamples)
 
 OPTION(BUILD_SPROCKET "Build Sprocket")
 if (BUILD_SPROCKET)

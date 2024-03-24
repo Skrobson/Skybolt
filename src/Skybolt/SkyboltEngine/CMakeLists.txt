@@ -19,7 +19,7 @@ set(LIBRARIES
 
 add_library(${LIB_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
-target_link_libraries(${LIB_NAME} ${LIBRARIES})
+target_link_libraries(${LIB_NAME} PUBLIC ${LIBRARIES})
 
 target_include_directories(${LIB_NAME} PUBLIC
 	${Boost_INCLUDE_DIRS}

@@ -16,4 +16,4 @@ add_library(${LIB_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
 set_target_properties(${LIB_NAME} PROPERTIES FOLDER Examples)
 
-target_link_libraries(${LIB_NAME} ${LIBRARIES})
+target_link_libraries(${LIB_NAME} PUBLIC ${LIBRARIES})
