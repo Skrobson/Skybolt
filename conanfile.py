@@ -65,7 +65,7 @@ class SkyboltConan(ConanFile):
     def requirements(self):
         self.include_package("cxxtimer", "1.0.0")
         self.include_package("px_sched", "1.0.0")
-        self.requires("openscenegraph/3.6.5")
+        #self.requires("openscenegraph/3.6.5")
 
         if self.options.enable_bullet:
             self.requires("bullet3/3.22a@_/_")
