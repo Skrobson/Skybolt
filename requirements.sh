@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo apt install libopenscenegraph-dev
+
+sudo apt install libboost-all-dev libopenscenegraph-dev -y

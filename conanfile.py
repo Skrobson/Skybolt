@@ -36,7 +36,7 @@ class SkyboltConan(ConanFile):
     no_copy_source = True
 
     requires = [
-        "boost/1.75.0@_/_",
+        #"boost/1.84.0@_/_",
         "catch2/2.13.8@_/_",
         "cpp-httplib/0.10.1@_/_",
         "earcut/2.2.3@_/_",
